@@ -15,8 +15,6 @@
 
 - 📫 How to reach me **anu2614kumar@gmail.com**
 
-- 📄 Know about my experiences [https://drive.google.com/file/d/1JJTOYtpjmL5KryDz5UmS6-sQMsYeol1o/view?usp=sharing](https://drive.google.com/file/d/1JJTOYtpjmL5KryDz5UmS6-sQMsYeol1o/view?usp=sharing)
-
 - ⚡ Fun fact **I think i'm funny**
 
 <h3 align="left">Connect with me:</h3>
