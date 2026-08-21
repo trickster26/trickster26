@@ -66,24 +66,10 @@ reach me:   anu2614kumar@gmail.com
 
 <br />
 
-## The numbers
+## Contribution graph
 
 <p align="center">
-  <img height="150" src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=trickster26&theme=github_dark" alt="Profile details" />
-</p>
-<p align="center">
-  <img height="165" src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=trickster26&theme=github_dark" alt="Repos per language" />
-  <img height="165" src="https://github-profile-summary-cards.vercel.app/api/cards/most-commit-language?username=trickster26&theme=github_dark" alt="Most commit language" />
-</p>
-<p align="center">
-  <img src="https://streak-stats.demolab.com/?user=trickster26&theme=dark&hide_border=true&background=08090C&ring=FFB020&fire=FFB020&currStreakLabel=FFB020&sideLabels=8A9099&dates=5C626C" alt="Contribution streak" />
-</p>
-<p align="center">
-  <img width="98%" src="https://github-readme-activity-graph.vercel.app/graph?username=trickster26&bg_color=08090C&color=E8EAEE&line=FFB020&point=FFFFFF&area=true&area_color=B57A14&hide_border=true&custom_title=Contribution%20activity" alt="Contribution graph" />
-</p>
-
-<p align="center">
-  <img width="98%" src="https://raw.githubusercontent.com/trickster26/trickster26/output/snake.svg" alt="Contribution snake" />
+  <img width="98%" src="https://raw.githubusercontent.com/trickster26/trickster26/output/snake.svg" alt="Contribution snake eating the commit grid" />
 </p>
 
 <img width="100%" src="https://capsule-render.vercel.app/api?type=waving&color=0:ffb020,40:b57a14,100:08090c&height=120&section=footer" alt="" />
