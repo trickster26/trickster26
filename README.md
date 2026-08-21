@@ -22,7 +22,7 @@ Reasoning loops, tool-calling, confidence scoring, and the human-approval gates 
 whether an agent action actually commits. The interesting problems are never the prompts.
 
 ```yaml
-now:        Senior AI Engineer @ SuperManager AGI
+now:        Senior AI Engineer
 working on: the agent and LLM layer of an enterprise agentic platform
 ask me about: agent architecture, retrieval pipelines, multi-tenant SaaS
 reach me:   anu2614kumar@gmail.com
