@@ -34,24 +34,30 @@ reach me:   anu2614kumar@gmail.com
 
 <table align="center">
   <tr>
-    <td align="center"><strong>AI &amp; Backend</strong></td>
+    <td align="right"><strong>AI&nbsp;&amp;&nbsp;Backend</strong></td>
     <td><img src="https://skillicons.dev/icons?i=python,fastapi,flask,django,nodejs,express&theme=dark" alt="Python, FastAPI, Flask, Django, Node.js, Express" /></td>
   </tr>
   <tr>
-    <td align="center"><strong>Frontend</strong></td>
-    <td><img src="https://skillicons.dev/icons?i=react,ts,js,tailwind,threejs&theme=dark" alt="React, TypeScript, JavaScript, Tailwind, three.js" /></td>
+    <td align="right"><strong>Languages</strong></td>
+    <td><img src="https://skillicons.dev/icons?i=ts,js,java,kotlin,cs,cpp,c,php&theme=dark" alt="TypeScript, JavaScript, Java, Kotlin, C#, C++, C, PHP" /></td>
   </tr>
   <tr>
-    <td align="center"><strong>Data</strong></td>
-    <td><img src="https://skillicons.dev/icons?i=postgres,mysql,mongodb,redis&theme=dark" alt="PostgreSQL, MySQL, MongoDB, Redis" /></td>
+    <td align="right"><strong>Frontend</strong></td>
+    <td><img src="https://skillicons.dev/icons?i=react,threejs,tailwind,vite,html,css&theme=dark" alt="React, three.js, Tailwind, Vite, HTML, CSS" /></td>
   </tr>
   <tr>
-    <td align="center"><strong>Platform</strong></td>
-    <td><img src="https://skillicons.dev/icons?i=aws,docker,kubernetes,cloudflare,git,linux&theme=dark" alt="AWS, Docker, Kubernetes, Cloudflare, Git, Linux" /></td>
+    <td align="right"><strong>Data</strong></td>
+    <td><img src="https://skillicons.dev/icons?i=postgres,mysql,mongodb,redis,sqlite&theme=dark" alt="PostgreSQL, MySQL, MongoDB, Redis, SQLite" /></td>
+  </tr>
+  <tr>
+    <td align="right"><strong>Platform</strong></td>
+    <td><img src="https://skillicons.dev/icons?i=aws,docker,kubernetes,cloudflare,nginx,linux,githubactions,vercel,git,postman&theme=dark" alt="AWS, Docker, Kubernetes, Cloudflare, Nginx, Linux, GitHub Actions, Vercel, Git, Postman" /></td>
   </tr>
 </table>
 
-<br />
+<p align="center">
+  <sub>Also: LLM agents, RAG, prompt engineering, computer vision, React Native, PM2, Playwright, Stripe, Twilio, the OpenAI and Gemini APIs.</sub>
+</p>
 
 ## Selected work
 
@@ -66,7 +72,11 @@ reach me:   anu2614kumar@gmail.com
 
 <br />
 
-## Contribution graph
+## The numbers
+
+<p align="center">
+  <img width="98%" src="https://raw.githubusercontent.com/trickster26/trickster26/main/stats.svg" alt="GitHub statistics" />
+</p>
 
 <p align="center">
   <img width="98%" src="https://raw.githubusercontent.com/trickster26/trickster26/output/snake.svg" alt="Contribution snake eating the commit grid" />

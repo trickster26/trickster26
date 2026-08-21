@@ -1,0 +1,39 @@
+# Renders stats.svg from the GitHub API and commits it to this repo.
+#
+# Running here rather than embedding a hosted widget means the API quota being
+# spent is this repo's own, so the card cannot degrade into the shared-instance
+# rate-limit error that every off-the-shelf stats badge serves.
+name: Generate stats
+
+on:
+  schedule:
+    - cron: "30 3 * * *"
+  workflow_dispatch:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Render
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: node scripts/stats.mjs > stats.svg
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add stats.svg
+          git diff --quiet --cached || git commit -m "chore: refresh stats [skip ci]"
+          git push
