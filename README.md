@@ -4,6 +4,9 @@
 
 <h1 align="center">Namaste 🙏, I'm Anu Kumar</h1>
 <h3 align="center">A passionate Web Developer and programmer from India</h3>
+<p align="center">
+  <a href="https://anukumar.site"><strong>anukumar.site</strong></a>
+</p>
 <img align="right" alt="Coding" width="400" src="https://cdn.dribbble.com/users/1162077/screenshots/3848914/programmer.gif">
 <p align="left"> <img src="https://komarev.com/ghpvc/?username=trickster26&label=Profile%20views&color=0e75b6&style=flat" alt="trickster26" /> </p>
 
