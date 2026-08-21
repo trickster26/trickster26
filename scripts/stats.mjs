@@ -9,8 +9,13 @@
  *   node scripts/stats.mjs > stats.svg
  *
  * GITHUB_TOKEN is optional: without it the public API still answers, just with
- * a lower rate limit. Language totals are byte-weighted, so a language is
- * ranked by how much of it was actually written, not by repo count.
+ * a lower rate limit.
+ *
+ * Languages are averaged across repos rather than summed by byte. Summing bytes
+ * sounds more precise and is badly wrong: one Unity WebGL export carries 51 MB
+ * of generated JavaScript, which alone is 73% of everything ever pushed here and
+ * buries the languages actually written by hand. Normalising each repo to its own
+ * 100% first means a generated build counts once, like every other repo.
  */
 
 const USER = process.env.STATS_USER ?? "trickster26";
@@ -78,13 +83,19 @@ const own = repos.filter((r) => !r.fork);
 const stars = own.reduce((n, r) => n + r.stargazers_count, 0);
 const forks = own.reduce((n, r) => n + r.forks_count, 0);
 
-// Byte-weighted language totals.
-const bytes = {};
+// Each repo is normalised to its own 100%, then averaged across repos.
+const shares = {};
 let failed = 0;
+let counted = 0;
 for (const repo of own) {
   try {
     const langs = await api(`/repos/${repo.full_name}/languages`);
-    for (const [name, n] of Object.entries(langs)) bytes[name] = (bytes[name] ?? 0) + n;
+    const repoTotal = Object.values(langs).reduce((a, b) => a + b, 0);
+    if (!repoTotal) continue;
+    for (const [name, n] of Object.entries(langs)) {
+      shares[name] = (shares[name] ?? 0) + n / repoTotal;
+    }
+    counted++;
   } catch (error) {
     if (String(error.message).startsWith("Rate limited")) throw error;
     failed++;
@@ -99,11 +110,14 @@ if (failed > own.length * 0.2) {
 
 const commits = await totalCommits();
 
-const total = Object.values(bytes).reduce((a, b) => a + b, 0) || 1;
-const ranked = Object.entries(bytes)
+const total = counted || 1;
+const ranked = Object.entries(shares)
   .sort((a, b) => b[1] - a[1])
   .slice(0, 8)
   .map(([name, n]) => ({ name, pct: (n / total) * 100 }));
+
+// The eight shown never sum to 100, so the bar is scaled to what it displays.
+const shown = ranked.reduce((a, l) => a + l.pct, 0) || 1;
 
 // The site palette, warm end first so the largest language reads brightest.
 const RAMP = ["#ffb020", "#e8a02a", "#c98a2c", "#a8762f", "#8a9099", "#6f757e", "#5c626c", "#464b54"];
@@ -144,7 +158,7 @@ let cursor = 48;
 const barW = W - 96;
 const segments = ranked
   .map((l, i) => {
-    const w = Math.max((l.pct / 100) * barW, 2);
+    const w = Math.max((l.pct / shown) * barW - 2, 2);
     const seg = `<rect x="${cursor.toFixed(1)}" y="176" width="${w.toFixed(1)}" height="10" rx="2" fill="${RAMP[i]}" />`;
     cursor += w + 2;
     return seg;
@@ -171,7 +185,7 @@ process.stdout.write(`<svg xmlns="http://www.w3.org/2000/svg" width="${W}" heigh
   <text x="${W - 48}" y="52" text-anchor="end" font-family="${mono}" font-size="10" fill="${DIM}">updated ${updated}</text>
   <line x1="48" y1="68" x2="${W - 48}" y2="68" stroke="${LINE}" />
   ${statCells}
-  <text x="48" y="164" font-family="${mono}" font-size="10" letter-spacing="1.4" fill="${DIM}">LANGUAGES BY BYTES WRITTEN</text>
+  <text x="48" y="164" font-family="${mono}" font-size="10" letter-spacing="1.4" fill="${DIM}">LANGUAGES BY SHARE ACROSS REPOS</text>
   ${segments}
   ${legend}
 </svg>
